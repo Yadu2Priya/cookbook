@@ -12,7 +12,7 @@ const RecipeDetail = ({
     setSearch(value);
     console.log(search);
     const data = intialRecipe.filter((e) =>
-      e.recipetitle.toLowerCase().includes(value.toLowerCase())
+      e.title.toLowerCase().includes(value.toLowerCase())
     );
     setFilterData(data);
     console.log("data", data);
@@ -33,26 +33,26 @@ const RecipeDetail = ({
         ? filterData.map((item, index) => (
             <div
               key={index}
-              style={{ backgroundImage: `url(${item?.featuredimg})` }}
+              style={{ backgroundImage: `url(${item?.bgimage})` }}
             >
-              <h1 className="title">{item?.recipetitle}</h1>
+              <h1 className="title">{item?.title}</h1>
               <p className="title">
-                CookTime: {item?.recipecookingtime} minutes
+                CookTime: {item?.cookingTime} minutes
               </p>
-              <Link to={`/recipecard/${item?.recipetitle}`}>Recipe Detail</Link>
+              <Link to={`/recipecard/${item?.title}`}>Recipe Detail</Link>
             </div>
           ))
         : intialRecipe.map((item, index) => (
             <div
               key={index}
-              style={{ backgroundImage: `url(${item?.featuredimg})` }}
+              style={{ backgroundImage: `url(${item?.bgimage})` }}
             >
-              <h1 className="title">{item?.recipetitle}</h1>
+              <h1 className="title">{item?.title}</h1>
               <p className="title">
-                CookTime: {item?.recipecookingtime} minutes
+                CookTime: {item?.cookingTime} minutes
               </p>
               <Link
-                to={`/recipecard/${item?.recipetitle}`}
+                to={`/recipecard/${item?.title}`}
                 style={{ color: "blue" }}
               >
                 Recipe Detail

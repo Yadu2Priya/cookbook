@@ -11,9 +11,6 @@ const Footer = ()=> {
                 <br />
                 the renowned team of masterchefs
                 <br />
-                <a href='https://github.com/Konstrukteur'>Konstrukteur</a>,
-                <a href='https://github.com/Momtaz1992'>Momtaz1992</a>,<br />
-                <a href='https://github.com/TheRealOwenRees'>TheRealOwenReese</a>,
                 <a href='https://github.com/Yadu2Priya'>Yadu2Priya</a>
               </p>
               <span className='text-muted'>

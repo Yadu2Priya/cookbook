@@ -1,9 +1,7 @@
-import './App.css';
-
+import "./App.css";
 
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
 
 const FullCard = ({ intialRecipe }) => {
   const { recipetitle } = useParams();
@@ -13,26 +11,27 @@ const FullCard = ({ intialRecipe }) => {
 
   useEffect(() => {
     intialRecipe?.filter((item) => {
-      if (item?.recipetitle === recipetitle) {
+      if (item?.title === recipetitle) {
         setRecipe(item);
       }
     });
   }, [intialRecipe, recipetitle]);
 
+
   return (
     <div>
-        <h3>{recipe.recipetitle}</h3>
-          <img src={recipe.thumbnail} alt={recipe.recipetitle} />
-        <p>
-          <strong>Ingredients: </strong>
-         <span>{recipe.recipeingred}</span>
-        </p>
-        <br />
-        <p>
+      <h3>{recipe.title}</h3>
+      <img src={recipe.url} alt={recipe.title} />
+      <p>
+        <strong>Ingredients: </strong>
+        <span>{recipe.ingredients}</span>
+      </p>
+      <br />
+      <p>
         <strong>Method: </strong>
-          {recipe.recipemethod}
-        </p>
-      </div>
+        {recipe.method}
+      </p>
+    </div>
   );
 };
 export default FullCard;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import useConteful from "./recipe";
+//import useConteful from "./recipe";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React from "react";
 import RecipeDetail from "./RecipeDetail";
@@ -7,15 +7,16 @@ import FullCard from "./FullCard";
 import Home from "./Home";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
+import { getData } from "./getdata";
 
 const App = () => {
   const [intialRecipe, setInitialRecipe] = useState([]);
   const [search, setSearch] = useState("");
   const [filterData, setFilterData] = useState([]);
-  const { getRecipe } = useConteful();
+  //const { getRecipe } = useConteful();
 
   useEffect(() => {
-    getRecipe().then((response) => setInitialRecipe(response));
+    getData().then((response) => setInitialRecipe(response.data));
   }, []);
   console.log(intialRecipe);
 
@@ -30,7 +31,6 @@ const App = () => {
               <Route path="/" element={<Home />}>
                 {" "}
               </Route>
-
               <Route
                 path="RecipeDetail"
                 element={
