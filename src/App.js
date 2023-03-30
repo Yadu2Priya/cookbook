@@ -1,24 +1,22 @@
 import { useEffect, useState } from "react";
-//import useConteful from "./recipe";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React from "react";
-import RecipeDetail from "./RecipeDetail";
-import FullCard from "./FullCard";
+import RecipesIndex from "./RecipesIndex";
+import RecipeDetails from "./RecipeDetails";
 import Home from "./Home";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
-import { getData } from "./getdata";
+import { getRecipes } from "./getdata";
 
 const App = () => {
-  const [intialRecipe, setInitialRecipe] = useState([]);
+  const [intialRecipes, setInitialRecipes] = useState([]);
   const [search, setSearch] = useState("");
   const [filterData, setFilterData] = useState([]);
-  //const { getRecipe } = useConteful();
 
   useEffect(() => {
-    getData().then((response) => setInitialRecipe(response.data));
+    getRecipes().then((response) => setInitialRecipes(response.data));
   }, []);
-  console.log(intialRecipe);
+  console.log(intialRecipes);
 
   return (
     <>
@@ -26,30 +24,26 @@ const App = () => {
         <main className="container p-4">
           <Router>
             <NavBar setSearch={setSearch} />
-
             <Routes>
               <Route path="/" element={<Home />}>
                 {" "}
               </Route>
               <Route
-                path="RecipeDetail"
+                path="RecipesIndex"
                 element={
-                  <RecipeDetail
-                    setInitialRecipe={setInitialRecipe}
-                    intialRecipe={intialRecipe}
+                  <RecipesIndex
+                    setInitialRecipes={setInitialRecipes}
+                    intialRecipes={intialRecipes}
                     search={search}
                     setSearch={setSearch}
                     filterData={filterData}
                     setFilterData={setFilterData}
                   />
                 }
-              >
-                {" "}
-              </Route>
-
+              ></Route>
               <Route
-                path="/recipecard/:recipetitle"
-                element={<FullCard intialRecipe={intialRecipe} />}
+                path="/recipedetails/:recipetitle"
+                element={<RecipeDetails />}
               ></Route>
             </Routes>
           </Router>

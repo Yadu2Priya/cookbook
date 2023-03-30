@@ -24,7 +24,7 @@ const NavBar = ({ setSearch }) => {
             ? { color: "red", textDecoration: "none" }
             : { color: "black", textDecoration: "none" }
         }
-        to="RecipeDetail"
+        to="RecipesIndex"
       >
         Recipe List
       </NavLink>

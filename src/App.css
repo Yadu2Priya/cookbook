@@ -37,8 +37,9 @@ body{
   margin-right: 20px;
  }
 .title{
+  padding-top: 25%;
   text-decoration: double;
-  color: rgb(16, 17, 17);
+  color: rgb(46, 26, 227);
 }
 #form{
   padding-top: 2%;
@@ -74,4 +75,17 @@ letter-spacing: 0.10em;
 box-shadow: 0 0 35px;
 }
 
+.indeximages{
+  height: 400px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
+.carousel-image-container {
+  height: 500px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
